@@ -34,7 +34,7 @@ HF_TOKEN = os.getenv("TOKEN") # Needed for gated/private models
 
 # Set True to load large models in 4-bit (saves VRAM/RAM, requires bitsandbytes)
 # pip install bitsandbytes
-USE_4BIT = True
+USE_4BIT = False
 
 
 def load_model(model_id: str = MODEL_ID):
