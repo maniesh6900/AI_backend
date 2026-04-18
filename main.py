@@ -14,14 +14,18 @@ tokenizer , model = load_model(MODEL_ID)
 class Data(BaseModel):
     prompt : str
 
-@app.post("/chat/")
+@app.post("/chat")
 async def get_ans(data : Data):
     r =  generate_text(data.prompt, tokenizer, model)
     print(r)
-    return {"msg" : r,  }
+    return {"msg" : r,}
 
-@app.post("/check/")
+@app.post("/check")
 async def getcheck(data : Data):
     return {data : os.getenv("PORT")}
+
+@app.get("/")
+def get():
+    return {"msg" : "hello world"}
 
 
